@@ -1,0 +1,26 @@
+<canvas id='c'></canvas>
+<script>
+var c = document.getElementById('c').getContext('2d')
+c.fillStyle = 'skyblue'
+c.fillRect(0,0,300,150)
+var f = 0
+var d = 325
+var mario = new Image();
+mario.src = "http://i66.tinypic.com/2e3tvsj.gif";
+c.drawImage(mario,50,95);
+
+draw()
+function draw(){
+c.fillStyle = 'brown'
+for (var b=f; b<300; b+=25){
+c.clearRect(b,124,30,30)
+c.fillRect(b,125,25,25)
+c.strokeRect(b,125,25,25)}
+f=f%25 -1
+c.fillStyle = 'skyblue'
+c.fillRect(d,124,25,26)
+d-=1
+if (d === -25) d=325
+requestAnimationFrame(draw)
+}
+</script>
