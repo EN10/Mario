@@ -2,6 +2,13 @@
 <script>
 var c = document.getElementById('c').getContext('2d');
 var k = 0;      // begining of floor
+var g = 350;    // gap
+var my = 95;    // mario y
+var up = false; // moving up
+
+window.onclick = jump;
+function jump() 
+{   if (my == 95)    up = true;   }
 
 draw();
 function draw(){
@@ -10,7 +17,10 @@ function draw(){
     
     var mario = new Image();
     mario.src = "http://i66.tinypic.com/2e3tvsj.gif";
-    c.drawImage(mario,50,95);
+    c.drawImage(mario,50,my);
+    if (up)             my -= 2
+    if (my < 50)        up = false
+    if (!up && my < 95) my += 1
     
     for (var x=0+k; x<350+k; x+=25) {
         c.fillStyle = 'brown';
@@ -19,6 +29,13 @@ function draw(){
         
     k = k - 1;
     if (k == -25) k = 0;
+    
+    c.fillStyle = 'skyblue';
+    c.fillRect(g,124,25,26);
+    
+    g = g - 1;
+    if (g == -25) g = 350;
+    
     requestAnimationFrame(draw);
 }
 </script>

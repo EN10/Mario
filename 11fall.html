@@ -1,17 +1,18 @@
 <canvas id='c'></canvas>
 <script>
 var c = document.getElementById('c').getContext('2d');
-var k = 0;
-var g = 350;
+var k = 0;      // begining of floor
+var g = 350;    // gap
+var my = 95;    // mario y
+var speed = 0;  // acceleration
+
+window.onclick = jump;
+function jump() { speed = -3.5; }
 
 draw();
 function draw(){
     c.fillStyle = 'skyblue';
     c.fillRect(0,0,300,150);
-    
-    var mario = new Image();
-    mario.src = "http://i66.tinypic.com/2e3tvsj.gif";
-    c.drawImage(mario,50,95);
     
     for (var x=0+k; x<350+k; x+=25) {
         c.fillStyle = 'brown';
@@ -26,6 +27,17 @@ function draw(){
     
     g = g - 1;
     if (g == -25) g = 350;
+    
+    var mario = new Image();
+    mario.src = "http://i66.tinypic.com/2e3tvsj.gif";
+    c.drawImage(mario,50,my);
+    if (my < 95 || speed < 0)   {
+        my = my + speed;
+        speed = speed + 0.1;    }
+    
+    // 50 mx - 8 (16(mario width / 2) = 42
+    // 50 mx + (25 gap - (16(mario width / 2) = 67
+    if (g > 42 && g < 67) my += 1;
     
     requestAnimationFrame(draw);
 }

@@ -1,0 +1,58 @@
+<canvas id='c'></canvas>
+<script>
+var c = document.getElementById('c').getContext('2d');
+var k = 0;          // begining of floor
+var g = 350;        // gap
+var my = 95;        // mario y
+var speed = 0;      // acceleration
+var go = false;     // game over
+
+window.onclick = jump;
+function jump() { if (my <= 96 && my > 94)  speed = -3.5; }
+
+draw();
+function draw(){
+    // background / sky
+    c.fillStyle = 'skyblue';
+    c.fillRect(0,0,300,125);
+    
+    // floor
+    for (var x=0+k; x<350+k; x+=25) {
+        c.fillStyle = 'brown';
+        c.fillRect(x,125,25,25);
+        c.strokeRect(x,125,25,25);  }
+        
+    k = k - 1;
+    if (k == -25) k = 0;
+    
+    // gap
+    c.fillStyle = 'skyblue';
+    c.fillRect(g,124,25,26);
+    
+    g = g - 1;
+    if (g == -25) g = 350;
+
+    // mario
+    var mario = new Image();
+    mario.src = "http://i66.tinypic.com/2e3tvsj.gif";
+    c.drawImage(mario,50,my);
+    if (my < 95 || speed < 0)   {
+        my = my + speed;
+        speed = speed + 0.1;    }
+    
+    // fall
+    // 50 mx - 8 (16(mario width / 2) = 42  right hand side
+    // 50 mx + (25 gap - (16(mario width / 2) = 67 left hand side
+    if (g > 42 && g < 67 && my >= 95 && my < 122)    my += 1.25;
+    
+    console.log(my);
+    
+    if (my > 122)      
+    {   go = true;
+        c.fillStyle = 'white';
+        c.font="30px Arial";
+        c.fillText("Game Over!",75,75);
+    }
+    if (go == false)    requestAnimationFrame(draw);
+}
+</script>
