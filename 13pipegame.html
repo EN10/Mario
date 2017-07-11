@@ -7,7 +7,7 @@
     
     window.onclick = jump
     function jump()
-    { if (my >= 100) speed = -3.5 }
+    { if (my >= 100) speed = -3.5 }     // upwards force hence negative
     
     draw()
     
@@ -29,9 +29,9 @@
     x = x - 1
     if (x == -50)   x = 300
         
-    if (my < 100 || speed < 0){
-        my = my + speed;
-        speed = speed + 0.1;    }
+    if (my < 100 || speed == -3.5){     // floor or force up
+        my = my + speed;                // acceleration applied to mario
+        speed = speed + 0.1;    }       // downwards force aka gravity
         
 if (!(x == 65 && my >= 100)) requestAnimationFrame(draw) 
     }
