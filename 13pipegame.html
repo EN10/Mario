@@ -1,9 +1,9 @@
 <canvas id='c'></canvas>
 <script>
     var c = document.getElementById('c').getContext('2d')
-    var x = 300                     // inital pipe position
-    var my = 100                    // inital mario position
-    var s = 0                       // inital speed
+    var x = 300                     // initial pipe position
+    var my = 100                    // initial mario position
+    var s = 0                       // initial speed
     
     window.onclick = function()
     { if (my >= 100) s = -3.5 }     // jump, upwards force hence negative
@@ -27,7 +27,7 @@
     mario.src = "http://i66.tinypic.com/2e3tvsj.gif"
     c.drawImage(mario,50,my)
     
-    my = my + s                     // initally 0 then -3.5 onclick
+    my = my + s                     // initially 0 then -3.5 onclick
     if (my < 102)  s = s + 0.1      // downward force
     if (my > 102)  s = 0            // stop on floor
         
