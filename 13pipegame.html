@@ -1,35 +1,34 @@
 <canvas id='c'></canvas>
 <script>
     var c = document.getElementById('c').getContext('2d')
-    var x = 300
-    var my = 100
-    var s = 0
+    var x = 300                     // inital pipe position
+    var my = 100                    // inital mario position
+    var s = 0                       // inital speed
     
     window.onclick = function()
-    { if (my >= 100) s = -3.5 }     // upwards force hence negative
+    { if (my >= 100) s = -3.5 }     // jump, upwards force hence negative
     
     draw()
-    
     function draw(){
     c.fillStyle = 'skyblue'
     c.fillRect(0,0,300,150)
+
+    c.fillStyle = 'brown'
+    c.fillRect(0,130,300,20)
     
     c.fillStyle = 'green'
     c.fillRect(x,100,30,50)
     c.fillRect(x-10,80,50,20)
     
-    c.fillStyle = 'brown'
-    c.fillRect(0,130,300,20)
+    x = x - 1                       // move pipe left
+    if (x == -50)   x = 300         // if off screen left move to right side
     
     var mario = new Image()
     mario.src = "http://i66.tinypic.com/2e3tvsj.gif"
     c.drawImage(mario,50,my)
     
-    x = x - 1
-    if (x == -50)   x = 300
-        
-    my = my + s                     // movement initially up -3.5
-    if (my < 102)  s = s + 0.1      // down force
+    my = my + s                     // initally 0 then -3.5 onclick
+    if (my < 102)  s = s + 0.1      // downward force
     if (my > 102)  s = 0            // stop on floor
         
 if (!(x == 65 && my >= 100)) requestAnimationFrame(draw) 
