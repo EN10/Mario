@@ -3,11 +3,10 @@
     var c = document.getElementById('c').getContext('2d')
     var x = 300
     var my = 100
-    var speed = 0
+    var s = 0
     
-    window.onclick = jump
-    function jump()
-    { if (my >= 100) speed = -3.5 }     // upwards force hence negative
+    window.onclick = function()
+    { if (my >= 100) s = -3.5 }     // upwards force hence negative
     
     draw()
     
@@ -29,9 +28,9 @@
     x = x - 1
     if (x == -50)   x = 300
         
-    if (my < 100 || speed == -3.5){     // floor or force up
-        my = my + speed;                // acceleration applied to mario
-        speed = speed + 0.1;    }       // downwards force aka gravity
+    my = my + s                     // movement initially up -3.5
+    if (my < 102)  s = s + 0.1      // down force
+    if (my > 102)  s = 0            // stop on floor
         
 if (!(x == 65 && my >= 100)) requestAnimationFrame(draw) 
     }
