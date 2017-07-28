@@ -5,6 +5,7 @@
     var my = 102                    // initial mario position
     var s = 0                       // initial speed
     
+    // window.ontouchstart = jump   // for iOS
     window.onclick = function()
     { if (my >= 102) s = -3.5 }     // jump, upwards force hence negative
     
@@ -20,7 +21,7 @@
     c.fillRect(x,100,30,50)
     c.fillRect(x-10,80,50,20)
     
-    x = x - 1                       // move pipe left
+    x = x - 5                       // move pipe left
     if (x == -50)   x = 300         // if off screen left move to right side
     
     var mario = new Image()
