@@ -1,0 +1,12 @@
+<canvas id="c"></canvas>
+<script>
+    var c = document.getElementById("c").getContext("2d")
+    var y = 0;
+    window.onkeypress = move;
+    
+    function move(e){
+    var key = String.fromCharCode(e.charCode);
+    if (key == "2") y = y + 1;
+    c.fillRect(0,y,50,50)
+    }
+</script>
