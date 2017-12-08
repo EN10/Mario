@@ -1,0 +1,15 @@
+<canvas id='c'></canvas>
+<script>
+var c = document.getElementById('c').getContext('2d');
+var y = 0;
+window.onmousedown = jump;
+function jump(e){ y -= 30 }
+
+draw();
+function draw(){
+c.clearRect(0,0,150,300)
+c.fillRect(50,y,20,20);
+y = y + 1;
+requestAnimationFrame(draw);
+}
+</script>
