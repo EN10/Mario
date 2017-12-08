@@ -17,7 +17,7 @@ function draw(){
     var mario = new Image();
     mario.src = "http://i66.tinypic.com/2e3tvsj.gif";
     c.drawImage(mario,50,my);
-    if (my < 95 || speed < 0)   {
+    if  ((my + speed) < 130)    {
         my = my + speed;
         speed = speed + 0.1;    }
     
