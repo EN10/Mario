@@ -1,0 +1,16 @@
+<canvas id='c'></canvas>
+<script>
+var c  = document.getElementById("c").getContext("2d")
+var x = 0
+
+draw()
+
+function draw(){
+    var image = new Image()
+    image.src = "https://tsicloud.com/wp-content/uploads/2017/06/cloud.jpg"
+    c.clearRect(0,0,300,150)
+    c.drawImage(image,x,0,211,120)
+    x = x + 1
+    requestAnimationFrame(draw)
+}
+</script>

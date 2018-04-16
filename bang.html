@@ -1,0 +1,14 @@
+<canvas id='c'></canvas>
+<script>
+var c  = document.getElementById("c").getContext("2d")
+
+window.onclick = draw
+
+function draw(){
+    
+    var image = new Image()
+    image.src = "https://www.pardot.com/content/uploads/2017/11/bang.jpg"
+    c.drawImage(image,0,0,150,150)
+
+}
+</script>
