@@ -8,6 +8,6 @@ Teach order:
 | ------ | ------ | ------ |
 | Rect | document.getElementById.getContext.fillRect | Chess Board |
 | Colour | fillStyle | Flag |
-| Image | new Image() | Mario |
+| Image | new Image() | Mario PNG|
 | Input | window.onclick | Bang |
 | Animate | requestAnimationFrame() | Cloud |
