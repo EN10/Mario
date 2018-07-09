@@ -1,0 +1,15 @@
+<canvas id='c'></canvas>
+<script>
+var c = document.getElementById('c').getContext('2d')
+c.fillStyle = 'skyblue';
+c.fillRect(0,0,300,150);
+c.fillStyle = 'green';
+c.fillRect(200,100,20,30);
+c.fillRect(195,90,30,10);
+c.fillStyle = 'brown';
+c.fillRect(0,130,300,20);
+
+var mario = new Image();
+mario.src = "http://i66.tinypic.com/2e3tvsj.gif";
+c.drawImage(mario,75,102);
+</script>
